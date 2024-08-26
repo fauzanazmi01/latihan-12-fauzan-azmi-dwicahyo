@@ -16,8 +16,8 @@ Route::group(['prefix' => 'search'], function () {
 });
 
 Route::view('/chat', 'chat');
-Route::post('/submit-chat', [GeminiAIController::class, 'handleChat'])
-    ->name('chat.submit');
+
+Route::resource('history_chat', GeminiAIController::class);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
