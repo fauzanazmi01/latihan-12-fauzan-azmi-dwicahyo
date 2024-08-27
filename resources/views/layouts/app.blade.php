@@ -18,33 +18,14 @@
 </head>
 <body class="bg-body-secondary">
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-body shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+        @guest
+            @include('layouts.nav.guest')
+        @endguest
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
+        @auth
+            @include('layouts.nav.user')
+        @endauth
 
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('history_chat.index') }}">Gemini</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('biodata.index') }}">Biodata</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
 
         <main class="py-4">
             @yield('content')
