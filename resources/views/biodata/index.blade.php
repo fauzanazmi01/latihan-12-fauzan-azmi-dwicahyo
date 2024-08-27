@@ -11,6 +11,7 @@
             <thead>
                 <tr>
                     <th scope="col">No.</th>
+                    <th scope="col">Gambar</th>
                     <th scope="col">Nama Lengkap</th>
                     <th scope="col">NIK</th>
                     <th scope="col">Umur</th>
@@ -25,6 +26,11 @@
                 @foreach ($biodataItems as $item)
                     <tr>
                         <th scope="col">{{ $i }}</th>
+                        <td>
+                        @if ($item->image_path)
+                            <img src="{{ asset('storage/' . $item->image_path) }}" alt="{{ $item->nama_lengkap }}" width="200" />
+                        @endif
+                        </td>
                         <td>{{ $item->nama_lengkap }}</td>
                         <td>{{ $item->nik }}</td>
                         <td>{{ $item->umur }}</td>

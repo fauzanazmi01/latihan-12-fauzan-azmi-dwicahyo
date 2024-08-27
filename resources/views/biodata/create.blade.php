@@ -3,7 +3,7 @@
 @section('content')
 <div class="container bg-body p-4 rounded">
     <h2>Tambah biodata</h2>
-    <form action="{{ route('biodata.store') }}" method="POST">
+    <form action="{{ route('biodata.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
             <label class="form-label" for="nama_lengkap">Nama</label>
@@ -21,6 +21,11 @@
             <label class="form-label" for="alamat">Alamat</label>
             <input type="text" id="alamat" class="form-control" name="alamat" value="">
         </div>
+        <div class="mb-3">
+            <label class="form-label" for="image">Gambar</label>
+            <input class="form-control" type="file" id="image" name="image">
+        </div>
+
         <div class="mt-3">
             <input class="btn btn-primary w-100" type="submit" value="Kirim"></input>
         </div>
